@@ -30,7 +30,7 @@ class UserMsg(models.Model):
     """
     Model for a message sent to a MyComm device from a user using something like web interface, etc.
 """
-    user = models.ForeignKey('auth.User')                                   # User will have to be registered and logged in.
+    user = models.ForeignKey('auth.User',    on_delete=models.CASCADE)                                   # User will have to be registered and logged in.
     message = models.TextField()                                            # Main message text.
     destinationId = models.TextField()                                      # ID of MyComm device to send to - i.e. myCommHackaday.
     receivedTime = models.DateTimeField(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))               # Time stamp.

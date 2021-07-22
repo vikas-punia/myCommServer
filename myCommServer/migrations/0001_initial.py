@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
                 ('message', models.TextField()),
                 ('receivedDate', models.DateTimeField(default=django.utils.timezone.now)),
-                ('users', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('users', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]
