@@ -22,8 +22,12 @@ def messages(request):
     myCommMessages = MyCommMsg.objects.order_by('receivedTime').reverse()                           # Retrieve all messages received from the MyComm device.
     userMessages = UserMsg.objects.order_by('receivedTime').reverse()                               # Retrieve all messages sent by registered users to the MyComm device.
     messages = sorted(chain(myCommMessages, userMessages),key=attrgetter('receivedTime'),reverse=True) # Sorts the messages in reverse date order.
-    return render(request, "messages.html", {'messages': messages})                                 # Render main message stream view.
-
+    for message in messages:
+        lat=message.latitude
+        lng=message.longitude
+        text=message.message
+        break
+    return render(request, "messages.html", {'messages': messages,'API_KEY':"AIzaSyByL-m3eUoTCynGVm9UhH9aDbgCznjgDMg",'lat': lat, 'lng':lng, 'text':text,})  
 @csrf_exempt
 def incomingMessage(request):
     """
