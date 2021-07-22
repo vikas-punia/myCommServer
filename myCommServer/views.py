@@ -47,7 +47,7 @@ def incomingMessage(request):
         iridium_cep = postDict.get("iridium_cep")
         transmit_time = postDict.get("transmit_time")
 
-        myCommMsg = MyCommMsg(deviceImei=myCommSender, message=message, destinationId="HackadayFans", longitude=longitude, latitude=latitude, iridium_cep=iridium_cep, transmit_time=transmit_time, receivedTime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        myCommMsg = MyCommMsg(deviceImei=myCommSender, message=message, destinationId="Control Room", longitude=longitude, latitude=latitude, iridium_cep=iridium_cep, transmit_time=transmit_time, receivedTime=datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         myCommMsg.save()                                                            # Save new message in database.
 
     return HttpResponse(status=200)
