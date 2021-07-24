@@ -13,6 +13,7 @@ import urllib
 from urllib.request import urlopen
 from django.contrib.auth import authenticate, login, logout
 from ratelimit.decorators import ratelimit
+import pusher
 
 
 def messages(request):
@@ -27,13 +28,23 @@ def messages(request):
         lng=message.longitude
         text=message.message
         break
-    return render(request, "messages.html", {'messages': messages,'API_KEY':"AIzaSyByL-m3eUoTCynGVm9UhH9aDbgCznjgDMg",'lat': lat, 'lng':lng, 'text':text,})  
+    return render(request, "messages.html", {'messages': messages,'API_KEY':"AIzaSyByL-m3eUoTCynGVm9UhH9aDbgCznjgDMg",'lat': lat, 'lng':lng, 'text':text,})                                 # Render main message stream view.
+
 @csrf_exempt
 def incomingMessage(request):
     """
     Message received from Iridium via API.
     """
     print("\nINCOMING IRIDIUM MESSAGE\n")
+    pusher_client = pusher.Pusher(
+    app_id='1240027',
+    key='a6ea15e9396a76bd40f4',
+    secret='5e60d05a4632f967a9ab',
+    cluster='ap2',
+    ssl=True
+    )
+
+    pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
 
     if request.method == 'POST':                                                    # Confirm it is a POST
         postDict = request.POST
@@ -174,4 +185,4 @@ def location(request):
     text = request.GET['text']
     print("Lat: " + lat)
 
-    return render(request, "location.html", {'lat': lat, 'lng':lng, 'text':text, 'API_KEY':settings.GOOGLE_API_KEY})
+    return render(request, "location.html", {'lat': lat, 'lng':lng, 'text':text, 'API_KEY':"AIzaSyByL-m3eUoTCynGVm9UhH9aDbgCznjgDMg"})
