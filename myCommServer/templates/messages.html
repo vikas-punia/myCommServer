@@ -3,6 +3,21 @@
 {% block content %}
   {% load static %}
   <h4>Message Stream</h4>
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('a6ea15e9396a76bd40f4', {
+      cluster: 'ap2'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
   <style>
   /* Split the screen in half */
   .split {
