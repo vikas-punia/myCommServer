@@ -1,4 +1,5 @@
 django
+pusher
 django-extensions
 dj-database-url
 gunicorn
