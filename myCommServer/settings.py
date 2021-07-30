@@ -31,7 +31,7 @@ rockBlockPassword = "Vikaspunia@009"
 iridiumApi = "https://core.rock7.com/rockblock/MT"
 SECRET_KEY = "44wrc^&^@1nbd!-87he#eu6y%(z31)qcxn_7ezn2vbgalm@xe_"
 DEBUG = os.environ.get("DEBUG")
-GOOGLE_API_KEY = "AIzaSyByL-m3eUoTCynGVm9UhH9aDbgCznjgDMg"
+GOOGLE_API_KEY = "AIzaSyAChYf5Rs1iR0PpCFkj9i4UazBzAFWhCMs"
 
 # load database from the DATABASE_URL environment variable
 DATABASES = {}
