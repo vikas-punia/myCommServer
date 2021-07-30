@@ -28,7 +28,7 @@ def messages(request):
         lng=message.longitude
         text=message.message
         break
-    return render(request, "messages.html", {'messages': messages,'API_KEY':"AIzaSyByL-m3eUoTCynGVm9UhH9aDbgCznjgDMg",'lat': lat, 'lng':lng, 'text':text,})                                 # Render main message stream view.
+    return render(request, "messages.html", {'messages': messages,'API_KEY':"AIzaSyAChYf5Rs1iR0PpCFkj9i4UazBzAFWhCMs",'lat': lat, 'lng':lng, 'text':text,})                                 # Render main message stream view.
 
 @csrf_exempt
 def incomingMessage(request):
