@@ -55,11 +55,10 @@ def incomingMessage(request):
         except MyCommDevice.DoesNotExist:
             print("Incorrect IMEI.")
             return HttpResponse(status=403)
-<<<<<<< HEAD
+
         print('********************************************')
         print(postDict)
-=======
->>>>>>> 22e627bdf28336ec59009d9c1393aad032087296
+
 
         message = binascii.unhexlify(postDict.get("data"))
         longitude = postDict.get("iridium_longitude")
