@@ -57,7 +57,7 @@ def incomingMessage(request):
             return HttpResponse(status=403)
 
         print('********************************************')
-        print(postDict)
+        print(postDict.get("data"))
 
 
         message = binascii.unhexlify(postDict.get("data"))
