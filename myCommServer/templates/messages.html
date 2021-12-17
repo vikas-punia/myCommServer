@@ -99,7 +99,7 @@
   function myMap(lat, lng) {
 
     var mapCanvas = document.getElementById("map");
-    var myCenter = new google.maps.LatLng({lat},{lng});                   // Uses the lat/lng permission passed by Django view.
+    var myCenter = new google.maps.LatLng({{lat}},{{lng}});                   // Uses the lat/lng permission passed by Django view.
     var mapOptions = {
       center: myCenter,
       zoom: 8
