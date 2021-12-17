@@ -15,7 +15,6 @@ from django.contrib.auth import authenticate, login, logout
 from ratelimit.decorators import ratelimit
 import pusher
 
-
 def messages(request):
     """
     Main view that shows message stream of messages sent from MyComm device and to MyComm device by registered users.
