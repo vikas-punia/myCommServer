@@ -10,3 +10,4 @@ whitenoise
 django-ratelimit
 psycopg2-binary
 playsound
+PyObjC
