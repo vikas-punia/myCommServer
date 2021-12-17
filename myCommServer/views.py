@@ -15,6 +15,12 @@ from django.contrib.auth import authenticate, login, logout
 from ratelimit.decorators import ratelimit
 import pusher
 
+import os
+import requests
+import playsound
+
+
+
 def messages(request):
     """
     Main view that shows message stream of messages sent from MyComm device and to MyComm device by registered users.
@@ -42,6 +48,8 @@ def incomingMessage(request):
     cluster='ap2',
     ssl=True
     )
+
+    playsound.playsound("christmas_bells.mp3", True)
 
     pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
 
