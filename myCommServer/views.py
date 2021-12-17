@@ -53,7 +53,8 @@ def incomingMessage(request):
     # absolute path to this file's root directory
     PARENT_DIR = os.path.join(FILE_DIR, os.pardir) 
 
-    downloaded_file_location = os.path.join(PARENT_DIR, 'christmas_bells.mp3')
+    #downloaded_file_location = os.path.join(PARENT_DIR, 'christmas_bells.mp3')
+    downloaded_file_location = '/app/myCommServe/christmas_bells.mp3'
     playsound.playsound(downloaded_file_location, True)
 
     pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
