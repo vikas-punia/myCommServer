@@ -60,7 +60,7 @@ def incomingMessage(request):
         print(postDict.get("data"))
 
 
-        message = binascii.unhexlify(postDict.get("data"))
+        message = postDict.get("data")
         longitude = postDict.get("iridium_longitude")
         latitude = postDict.get("iridium_latitude")
         iridium_cep = postDict.get("iridium_cep")
