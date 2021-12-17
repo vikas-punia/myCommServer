@@ -48,7 +48,12 @@ def incomingMessage(request):
     ssl=True
     )
 
-    downloaded_file_location = 'christmas_bells.mp3'
+    # absolute path to this file
+    FILE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # absolute path to this file's root directory
+    PARENT_DIR = os.path.join(FILE_DIR, os.pardir) 
+
+    downloaded_file_location = os.path.join(PARENT_DIR, 'christmas_bells.mp3')
     playsound.playsound(downloaded_file_location, True)
 
     pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
