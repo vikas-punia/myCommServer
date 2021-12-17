@@ -9,3 +9,4 @@ djangorestframework
 whitenoise
 django-ratelimit
 psycopg2-binary
+playsound

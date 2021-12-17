@@ -16,6 +16,10 @@ from ratelimit.decorators import ratelimit
 import pusher
 
 
+import os
+import requests
+import playsound
+
 def messages(request):
     """
     Main view that shows message stream of messages sent from MyComm device and to MyComm device by registered users.
@@ -44,6 +48,8 @@ def incomingMessage(request):
     ssl=True
     )
 
+    playsound.playsound(downloaded_file_location, True)
+
     pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
 
     if request.method == 'POST':                                                    # Confirm it is a POST
@@ -60,7 +66,7 @@ def incomingMessage(request):
         print(postDict.get("data"))
 
 
-        message = postDict.get("data"))
+        message = postDict.get("data")
         longitude = postDict.get("iridium_longitude")
         latitude = postDict.get("iridium_latitude")
         iridium_cep = postDict.get("iridium_cep")
