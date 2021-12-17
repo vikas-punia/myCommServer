@@ -1,0 +1,11 @@
+django
+pusher
+django-extensions
+dj-database-url
+gunicorn
+python-dotenv
+hashids
+djangorestframework
+whitenoise
+django-ratelimit
+psycopg2-binary
