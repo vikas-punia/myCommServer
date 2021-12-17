@@ -15,11 +15,6 @@ from django.contrib.auth import authenticate, login, logout
 from ratelimit.decorators import ratelimit
 import pusher
 
-import os
-import requests
-import playsound
-
-
 
 def messages(request):
     """
@@ -49,8 +44,6 @@ def incomingMessage(request):
     ssl=True
     )
 
-    playsound.playsound("christmas_bells.mp3", True)
-
     pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
 
     if request.method == 'POST':                                                    # Confirm it is a POST
@@ -67,7 +60,7 @@ def incomingMessage(request):
         print(postDict.get("data"))
 
 
-        message = postDict.get("data")
+        message = postDict.get("data"))
         longitude = postDict.get("iridium_longitude")
         latitude = postDict.get("iridium_latitude")
         iridium_cep = postDict.get("iridium_cep")
