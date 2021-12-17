@@ -12,18 +12,18 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
+from django.urls import include, re_path
 from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.messages, name='messages'),
-    url(r'^incomingMessage/?$', views.incomingMessage, name='incomingMessage'),
-    url(r'^outgoingMessage/?$', views.outgoingMessage, name='outgoingMessage'),
-    url(r'^testSendMessage/?$', views.testSendMessage, name='testSendMessage'),
-    url(r'^loginUser/?$', views.loginUser, name='loginUser'),
-    url(r'^logoutUser/?$', views.logoutUser, name='logoutUser'),
-    url(r'^registerUser/?$', views.registerUser, name='registerUser'),
-    url(r'^location/?$', views.location, name='location'),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^$', views.messages, name='messages'),
+    re_path(r'^incomingMessage/?$', views.incomingMessage, name='incomingMessage'),
+    re_path(r'^outgoingMessage/?$', views.outgoingMessage, name='outgoingMessage'),
+    re_path(r'^testSendMessage/?$', views.testSendMessage, name='testSendMessage'),
+    re_path(r'^loginUser/?$', views.loginUser, name='loginUser'),
+    re_path(r'^logoutUser/?$', views.logoutUser, name='logoutUser'),
+    re_path(r'^registerUser/?$', views.registerUser, name='registerUser'),
+    re_path(r'^location/?$', views.location, name='location'),
 ]
