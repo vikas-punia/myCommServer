@@ -64,7 +64,7 @@
   {% for message in messages %}
     
     <div class="panel panel-info {% if message.transmit_time %}myCommDevice{% else %}server{% endif %}" style="width: auto;" onclick="myMap({{message.latitude}}, {{message.longitude}});">
-      <div style="width: 100%  ; background-color: yellow;height: 1.5cm;">
+      <div style="width: 100%  ; background-color: rgb(89, 0, 255);height: 1.5cm;">
         
           
             <span style="font-size: 16px; font-family:monospace;font-weight: bold;width: fit-content;text-transform:uppercase;"> &nbsp To: {{ message.destinationId }} </span><span class="time"  style="font-size: 16px; font-family:monospace;font-weight: bold;width: fit-content;text-transform:uppercase;">{{ message.receivedTime }}</span>
