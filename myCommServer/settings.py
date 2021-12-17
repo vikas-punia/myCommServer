@@ -35,6 +35,7 @@ GOOGLE_API_KEY = "AIzaSyAChYf5Rs1iR0PpCFkj9i4UazBzAFWhCMs"
 
 # load database from the DATABASE_URL environment variable
 DATABASES = {}
+<<<<<<< HEAD
 #DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
@@ -47,6 +48,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+=======
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+>>>>>>> 22e627bdf28336ec59009d9c1393aad032087296
 
 
 ALLOWED_HOSTS = ['choukass.herokuapp.com','mycomn.herokuapp.com','127.0.0.1']
