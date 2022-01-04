@@ -16,11 +16,6 @@ from ratelimit.decorators import ratelimit
 import pusher
 
 
-import os
-import requests
-import playsound
-import threading
-
 def messages(request):
     """
     Main view that shows message stream of messages sent from MyComm device and to MyComm device by registered users.
@@ -36,15 +31,6 @@ def messages(request):
     return render(request, "messages.html", {'messages': messages,'API_KEY':"AIzaSyAChYf5Rs1iR0PpCFkj9i4UazBzAFWhCMs",'lat': lat, 'lng':lng, 'text':text,})                                 # Render main message stream view.
 
 
-def  thread_function():
-    # absolute path to this file
-    FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-    # absolute path to this file's root directory
-    PARENT_DIR = os.path.join(FILE_DIR, os.pardir) 
-
-    #downloaded_file_location = os.path.join(PARENT_DIR, 'christmas_bells.mp3')
-    downloaded_file_location = '/app/myCommServer/christmas_bells.mp3'
-    playsound.playsound(downloaded_file_location, True)
 
 
 @csrf_exempt
@@ -60,8 +46,6 @@ def incomingMessage(request):
     cluster='ap2',
     ssl=True
     )
-    x = threading.Thread(target=thread_function)
-    x.start()
 
     pusher_client.trigger('my-channel', 'my-event', {'message':'New Message Recieved Please Check'})
 
