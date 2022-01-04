@@ -62,15 +62,14 @@
   </style>
   <div class="split left">
   {% for message in messages %}
-    
     <div class="panel panel-info {% if message.transmit_time %}myCommDevice{% else %}server{% endif %}" style="width: auto;">
       <div style="width: 100%  ; background-color: yellow;height: 1.5cm;">
         
           
-            <span style="font-size: 16px; font-family:monospace;font-weight: bold;width: fit-content;text-transform:uppercase;"> &nbsp To: {{ message.destinationId }} </span><span class="time"  style="font-size: 16px; font-family:monospace;font-weight: bold;width: fit-content;text-transform:uppercase;">{{ message.receivedTime }}</span>
+            <span style="font-size: 20px; font-family:monospace;font-weight: bold;width: fit-content;text-transform:uppercase;"> &nbsp To: {{ message.destinationId }} </span><span class="time"  style="font-size: 20px; font-family:monospace;font-weight: bold;width: fit-content;text-transform:uppercase;">{{ message.receivedTime }}</span>
           
           <div class="panel-title pull-right">
-            <div  style="font-size: 16px; font-family:monospace;font-weight: bold;text-transform:uppercase;">From: {% if message.deviceImei.deviceId %} {{message.deviceImei.deviceId}} {% else %} {{message.user}} {% endif %}
+            <div  style="font-size: 20px; font-family:monospace;font-weight: bold;text-transform:uppercase;">From: {% if message.deviceImei.deviceId %} {{message.deviceImei.deviceId}} {% else %} {{message.user}} {% endif %}
               {% if message.transmit_time %}
                  <span class="time">{{ message.transmit_time }}</span>
                  <a href="{% url 'location' %}?lat={{ message.latitude|urlencode}}&amp;lng={{message.longitude|urlencode}}&amp;text={{message.message|urlencode}}" target="_blank">
@@ -86,10 +85,9 @@
       </div>
 
       <div class="panel-body">
-        
         Message &nbsp;&nbsp;&nbsp;:
         {{ message.message|linebreaksbr }}
-    
+      </div>
     </div>
 
   {% endfor %}
@@ -98,12 +96,10 @@
   <h4 style="text-align: center;font-weight: bold;">Device Location</h4>
   <div id="map" style="width:100%;height:100%;float: right;" ></div>
   <script>
-  function myMap(latt, long) {
-  
+  function myMap() {
 
     var mapCanvas = document.getElementById("map");
-    var myCenter = new google.maps.LatLng({{lat}},{{lng}});   
-    //var myCenter = new google.maps.LatLng(latt,long);                   // Uses the lat/lng permission passed by Django view.
+    var myCenter = new google.maps.LatLng({{lat}},{{lng}});                   // Uses the lat/lng permission passed by Django view.
     var mapOptions = {
       center: myCenter,
       zoom: 8
