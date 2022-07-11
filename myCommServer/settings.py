@@ -43,7 +43,7 @@ DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['choukass.herokuapp.com']
 
 
 # Application definition
