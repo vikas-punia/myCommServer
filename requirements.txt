@@ -8,4 +8,4 @@ hashids
 djangorestframework
 whitenoise
 django-ratelimit
-psycopg2-binary
+psycopg2==2.8.6
