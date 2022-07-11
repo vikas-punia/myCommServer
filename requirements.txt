@@ -1,4 +1,4 @@
-django
+django==3.0
 pusher
 django-extensions
 dj-database-url
